@@ -53,15 +53,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mEdtTxtMainInput = (EditText) findViewById(R.id.edtTxt_main_input);
         mBtnMainSend = (Button) findViewById(R.id.btn_main_send);
         mLinLayMainBottom = (LinearLayout) findViewById(R.id.linLay_main_bottom);
-
+        mLinLayMainBottom.setVisibility(View.GONE);
         mBtnMainSend.setOnClickListener(this);
+        mKuViewMainBarrage.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_main_send:
-
+                submit();
+                break;
+            case R.id.kuView_main_barrage:  //点击屏幕处理器
+                if(mLinLayMainBottom.getVisibility()==View.GONE){ //输入栏是否隐藏？
+                    mLinLayMainBottom.setVisibility(View.VISIBLE);//是时，设为显示
+                }else{
+                    mLinLayMainBottom.setVisibility(View.GONE);//否则，设为隐藏
+                }
                 break;
         }
     }
